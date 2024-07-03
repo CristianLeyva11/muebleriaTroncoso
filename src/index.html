@@ -1,13 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>MuebleriaTroncoso</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
   <app-root></app-root>
+    <script>
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+
+            //>=, not <=
+            if (scroll >= 300) {
+                //clearHeader, not clearheader - caps H
+                $(".header").addClass("fixed");
+            }else{
+                $(".header").removeClass("fixed");
+            }
+        });
+        $('.cerrar').on('click', function(){
+            $('.registrarme').removeClass('active');
+            $('.login').removeClass('active');
+            $('.buscador').removeClass('active');
+            $('#buscador').removeClass('selected');
+            $('#registro').removeClass('selected');
+            $('.bag').removeClass('active');
+            $('#carrito').removeClass('selected');
+        })
+        $('#registro').on('click', function(){
+            $('.registrarme').addClass('active');
+            $('#registro').addClass('selected');
+            $('#buscador').removeClass('selected');
+            $('.buscador').removeClass('active');
+            $('.bag').removeClass('active');
+            $('#carrito').removeClass('selected');
+        })
+        $('#carrito').on('click', function(){
+            $('.bag').addClass('active');
+            $('#carrito').addClass('selected');
+            $('#buscador').removeClass('selected');
+            $('.buscador').removeClass('active');
+            $('.registrarme').removeClass('active');
+            $('#registro').removeClass('selected');
+            $('.login').removeClass('active');
+        })
+        $('#buscador').on('click', function(){
+            $('.registrarme').removeClass('active');
+            $('.login').removeClass('active');
+            $('.buscador').addClass('active');
+            $('#buscador').addClass('selected');
+            $('#registro').removeClass('selected');
+            $('.bag').removeClass('active');
+            $('#carrito').removeClass('selected');
+        })
+        $('#btnCuenta').on('click', function(){
+            $('.registrarme').removeClass('active');
+            $('.login').addClass('active');
+            $('#registro').addClass('selected');
+        })
+        $('#btnRegistrarme').on('click', function(){
+            $('.login').removeClass('active');
+            $('.registrarme').addClass('active');
+            $('#registro').addClass('selected');
+        })
+        $(function(){
+            $('#formRegistro').validationEngine({
+                scroll: false
+            });
+        });
+        $(function(){
+            $('#formLogin').validationEngine({
+                scroll: false
+            });
+        });
+    </script>
 </body>
 </html>

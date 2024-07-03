@@ -1,1 +1,501 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+/* COLORES */
+:root {
+  --gris: #F3F3F3;
+  --gris-oscuro: #B5B5B5;
+  --rojo: #D80000;
+  --negro: #000000;
+}
+
+/* Fonts */
+body {
+  font-family: 'Mulish', sans-serif;
+}
+
+/* Font-weight */
+:root {
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --bold: 700;
+  --black: 900;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html.scroll {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+}
+
+body.select {
+  background: #fef6f4;
+}
+
+body.owH {
+  overflow-y: hidden;
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+.input {
+  position: relative;
+}
+
+.layout {
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: var(--light);
+  margin: 0;
+  letter-spacing: 0.4em;
+  text-align: center;
+}
+
+.spinner {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000000000000;
+  background: rgba(0, 0, 0, .3);
+}
+
+.Validator {
+  position: fixed;
+  width: 50%;
+  left: 25%;
+  display: none;
+  top: 0;
+  opacity: 1;
+  background-color: var(--negro);
+  color: white;
+  font-size: 16px;
+  animation: fadein .5s;
+  box-shadow: 2px 5px 6px 0 rgba(0, 0, 0, .60);
+  z-index: 10000001;
+}
+
+.Validator .btn-validator {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.Validator .btn-validator button {
+  background-color: white;
+  color: var(--negro);
+  border: none;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+
+.Validator .btn-validator button:focus {
+  outline: none;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    top: -100px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.Producto {
+  width: 100%;
+  display: block;
+}
+
+.Producto:hover .img .float,
+.Producto:hover .heart,
+.Producto:hover .quiero {
+  display: block;
+}
+
+.Producto:hover .img .img-hidden {
+  opacity: 1;
+}
+
+.Producto .img {
+  position: relative;
+  overflow: hidden;
+}
+
+.Producto .img img {
+  width: 100%;
+  display: block;
+}
+
+.Producto .img-show {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.Producto .img-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.Producto .float {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: white;
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+.Producto .quiero {
+  background: var(--gris-oscuro);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+}
+
+.Producto .bot {
+  text-align: left;
+  padding: 20px 0;
+  width: 100% !important;
+}
+
+.Producto .bot h5 {
+  font-size: 14px;
+  font-weight: var(--bold);
+  font-family: 'Tajawal', sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.Producto .bot .price {
+  font-size: 14px;
+  font-family: 'Mulish', sans-serif;
+  margin-right: 10px;
+}
+
+.Producto .bot .price.desc {
+  color: var(--rojo);
+}
+
+.Producto .bot .price.lastP {
+  text-decoration: line-through;
+}
+
+.colors {
+  display: flex;
+  margin-top: 20px;
+}
+
+.colors .color {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+}
+
+#search-results {
+  overflow-y: auto;
+  height: calc(100% - 170px);
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--negro);
+  display: none;
+  font-size: 20px;
+  z-index: 9;
+  background: transparent;
+  border: none;
+}
+
+.heart.show {
+  display: block;
+}
+
+.registrarme,
+.login,
+.bag,
+.buscador {
+  width: 100%;
+  position: fixed;
+  background: transparent;
+  z-index: 30;
+  top: 0;
+  height: calc(100% - 138px);
+  right: -100%;
+  margin-top: 138px;
+}
+
+.registrarme.active,
+.login.active,
+.bag.active,
+.buscador.active {
+  transition: right 0.5s, background 0.5s;
+  transition-delay: 0s, 0.5s;
+  right: 0;
+  background: rgba(0, 0, 0, 0.389);
+}
+
+.registrarme .fondo-quitar,
+.login .fondo-quitar,
+.bag .fondo-quitar,
+.buscador .fondo-quitar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: calc(100% - 470px);
+  height: 100vh;
+  margin-right: auto;
+}
+
+.registrarme .registrarme-contenido,
+.login .login-contenido,
+.bag .bag-contenido,
+.buscador .buscador-contenido {
+  position: relative;
+  max-width: 470px;
+  margin-left: auto;
+  background: white;
+  padding: 90px 50px 0 50px;
+  height: 100%;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro,
+.login .login-contenido .login-contenido-registro,
+.bag .bag-contenido .bag-contenido-registro,
+.buscador .buscador-contenido .buscador-contenido-registro {
+  height: 100%;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro .d-flex,
+.login .login-contenido .login-contenido-registro .d-flex,
+.bag .bag-contenido .bag-contenido-registro .d-flex,
+.buscador .buscador-contenido .buscador-contenido-registro .d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px 0 50px;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro .d-flex .circulo,
+.login .login-contenido .login-contenido-registro .d-flex .circulo,
+.bag .bag-contenido .bag-contenido-registro .d-flex .circulo,
+.buscador .buscador-contenido .buscador-contenido-registro .d-flex .circulo {
+  background: var(--negro);
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro h3,
+.login .login-contenido .login-contenido-registro h3,
+.bag .bag-contenido .bag-contenido-registro h3,
+.buscador .buscador-contenido .buscador-contenido-registro h3 {
+  text-align: left;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro h2,
+.login .login-contenido .login-contenido-registro h2,
+.bag .bag-contenido .bag-contenido-registro h2,
+.buscador .buscador-contenido .buscador-contenido-registro h2 {
+  text-align: center;
+}
+
+.registrarme .registrarme-contenido .registrarme-contenido-registro .cerrar,
+.login .login-contenido .login-contenido-registro .cerrar,
+.bag .bag-contenido .bag-contenido-registro .cerrar,
+.buscador .buscador-contenido .buscador-contenido-registro .cerrar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.fondo-quitar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: calc(100% - 470px);
+  height: 100vh;
+  margin-right: auto;
+}
+
+.fondo-quitar:hover {
+  background: rgba(0, 0, 0, 0.389);
+}
+
+.circulo {
+  background: var(--negro);
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circulo button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.bag-contenido {
+  padding: 30px 50px;
+}
+
+.bag-contenido h3 {
+  margin: 0 0 30px 0;
+}
+
+.bag-contenido .d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px 0 50px;
+}
+
+.bag-contenido .cerrar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bag-contenido .carrito-contenido {
+  overflow-y: auto;
+  max-height: calc(100% - 100px);
+}
+
+.bag-contenido .carrito-contenido .carrito-producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gris-oscuro);
+}
+
+.bag-contenido .carrito-contenido .carrito-producto img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.bag-contenido .carrito-contenido .carrito-producto h5 {
+  font-size: 16px;
+  font-weight: var(--bold);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.bag-contenido .carrito-contenido .carrito-producto p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--gris-oscuro);
+}
+
+.bag-contenido .carrito-contenido .carrito-producto .precio {
+  font-size: 18px;
+  font-weight: var(--bold);
+  color: var(--rojo);
+}
+
+.bag-contenido .carrito-contenido .carrito-producto .eliminar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bag-contenido .carrito-contenido .carrito-producto .eliminar:hover {
+  color: var(--rojo);
+}
+
+.bag-contenido .carrito-contenido .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: var(--bold);
+  margin-top: 30px;
+}
+
+.bag-contenido .carrito-contenido .total .label {
+  color: var(--gris-oscuro);
+}
+
+.bag-contenido .carrito-contenido .total .precio-total {
+  color: var(--rojo);
+}
+
+.bag-contenido .carrito-contenido .checkout {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--negro);
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: var(--bold);
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.bag-contenido .carrito-contenido .checkout:hover {
+  background: var(--gris-oscuro);
+}
+
+.bag-contenido .carrito-contenido .checkout:focus {
+  outline: none;
+}
